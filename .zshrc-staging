@@ -30,3 +30,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+if [ -f ~/.profile ]
+then
+  source ~/.profile
+fi

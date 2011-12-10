@@ -3,6 +3,17 @@ filetype indent plugin on
 syntax on
 
 set hidden " to change buffer without saving changes
+set wildmenu                          " Better command-line completion 
+set wildmode=list:longest
+
+set ruler
+
+set laststatus=2 " always display statusline
+set statusline=[%n]\ %f\ %h%m%r%w\ (%{(&fenc==\"\"?&enc:&enc)})(%{&ff}){%Y}[%L]\ %=%-16(\ %l,%c-%v\ %)%P
+set showcmd                           " Show partial commands in the last line
+set showmode
+set cmdheight=2                       " command bar height
+set number
 
 set directory=~/.vim/tmp " where to put swap files
 
@@ -15,11 +26,31 @@ au BufNewFile,BufRead *.less set filetype=less
 " Useful mapping for fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-set laststatus=2 " always display statusline
+" Strip trailing whitespaces
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+command! StripTWS call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre *.less,*.css,*.php,*.c,*.py,*.js :call <SID>StripTrailingWhitespaces()
+
+" open files in the same directory as the current file see vimcasts.org)
+nmap <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+nmap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 set shiftwidth=2
 set expandtab
+set autoindent
+set smartindent
 set tabstop=2
 set softtabstop=2
 
 colorscheme admeris
+set background=dark

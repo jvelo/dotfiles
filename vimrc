@@ -54,3 +54,5 @@ set softtabstop=2
 
 colorscheme admeris
 set background=dark
+
+call pathogen#infect() 

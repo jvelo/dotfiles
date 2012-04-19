@@ -13,7 +13,7 @@ set statusline=[%n]\ %f\ %h%m%r%w\ (%{(&fenc==\"\"?&enc:&enc)})(%{&ff}){%Y}[%L]\
 set showcmd                           " Show partial commands in the last line
 set showmode
 set cmdheight=2                       " command bar height
-set number
+"set number
 
 set directory=~/.vim/tmp " where to put swap files
 
@@ -22,6 +22,15 @@ map Y y$
 
 " Add LESS syntax
 au BufNewFile,BufRead *.less set filetype=less
+
+" Add scala support
+au BufRead,BufNewFile *.scala set filetype=scala
+
+" Groovy syntax for gradle files
+au BufNewFile,BufRead *.gradle setf groovy
+
+" Velocity
+au! BufRead,BufNewFile *.vm  setfiletype velocity 
 
 " Useful mapping for fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete

@@ -56,3 +56,5 @@ colorscheme admeris
 set background=dark
 
 call pathogen#infect() 
+
+set backupskip=/tmp/*,/private/tmp/*" 

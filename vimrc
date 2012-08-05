@@ -30,7 +30,7 @@ au BufRead,BufNewFile *.scala set filetype=scala
 au BufNewFile,BufRead *.gradle setf groovy
 
 " Velocity
-au! BufRead,BufNewFile *.vm  setfiletype velocity 
+au BufRead,BufNewFile *.vm set ft=html syntax=velocity
 
 " Useful mapping for fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -61,7 +61,10 @@ set smartindent
 set tabstop=2
 set softtabstop=2
 
-colorscheme admeris
+" reveal tab characters and trailing whitespaces (V) (°,,,,°) (V)
+set list listchars=tab:→\ ,trail:·
+
+colorscheme wombat
 set background=dark
 
 call pathogen#infect() 

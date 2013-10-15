@@ -1,0 +1,16 @@
+[user]
+	name = Jerome Velociter
+	email = jerome@velociter.fr
+[color]
+    ui = true
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red
+[core]
+    editor = vim
+    autocrlf = input
+[push]
+    default = tracking 
+[merge]
+    tool = vimdiff

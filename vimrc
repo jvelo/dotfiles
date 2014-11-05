@@ -32,6 +32,9 @@ au BufNewFile,BufRead *.gradle setf groovy
 " Velocity
 au BufRead,BufNewFile *.vm set ft=html syntax=velocity
 
+" Go
+au BufRead,BufNewFile *.go set filetype=go
+
 " Useful mapping for fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
@@ -48,7 +51,7 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 command! StripTWS call <SID>StripTrailingWhitespaces()
-autocmd BufWritePre *.less,*.css,*.php,*.c,*.py,*.js :call <SID>StripTrailingWhitespaces()
+" autocmd BufWritePre *.less,*.css,*.c,*.py,*.js :call <SID>StripTrailingWhitespaces()
 
 " open files in the same directory as the current file see vimcasts.org)
 nmap <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -64,9 +67,9 @@ set softtabstop=2
 " reveal tab characters and trailing whitespaces (V) (°,,,,°) (V)
 set list listchars=tab:→\ ,trail:·
 
-colorscheme wombat
+" colorscheme wombat
 set background=dark
 
-call pathogen#infect() 
+" call pathogen#infect() 
 
 set backupskip=/tmp/*,/private/tmp/*" 

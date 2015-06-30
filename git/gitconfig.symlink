@@ -1,6 +1,6 @@
 [user]
-	name = Jérôme Velociter
-	email = jerome@velociter.fr
+    name = Jérôme Velociter
+    email = jerome@velociter.fr
 [color]
     ui = true
 [color "status"]
